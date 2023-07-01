@@ -1,6 +1,6 @@
-<form action="" method="POST">
+<form action="{% url 'individual_create' %}" method="post">
     {% csrf_token %}
-    {{ form }}
-    <input type="submit" name="save" value="Save">
-    <input type="submit" name="preview" value="Preview">
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+    <input type="submit" value="OK">
 </form>
