@@ -20,4 +20,12 @@ class Individual(models.Model):
     accomplished_by = models.CharField(_("Name of Person Accomplishing the Form"), max_length=50)
     attested_by = models.CharField(_("Attested by (Barangay Secretary)"), max_length=50)
     household_number = models.CharField(_("Household Number"), max_length=50)
+    household = models.ForeignKey(Household, verbose_name=_("Household"), on_delete=models.CASCADE, related_name="members")
+
+class Household(models.Model):
+    household_number = models.CharField(_("Household Number"), max_length=50)
+    date_accomplished = models.DateField(_("Date Accomplished"), auto_now=False, auto_now_add=False)
+    prepared_by = models.CharField(_("Prepared by"), max_length=50)
+    certified_by = models.CharField(_("Certified Correct"), max_length=50)
+    validated_by = models.CharField(_("Validated by"), max_length=50)
 
