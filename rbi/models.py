@@ -26,7 +26,7 @@ class Individual(models.Model):
 class Household(models.Model):
     household_number = models.CharField(_("Household Number"), max_length=50)
     date_accomplished = models.DateField(_("Date Accomplished"), auto_now=False, auto_now_add=False)
-    prepared_by = models.CharField(_("Prepared by"), max_length=50)
-    certified_by = models.CharField(_("Certified Correct"), max_length=50)
-    validated_by = models.CharField(_("Validated by"), max_length=50)
+    prepared_by = models.CharField(_("Prepared by (Name of Household Head/Member"), max_length=50)
+    certified_by = models.CharField(_("Certified Correct (Barangay Secretary)"), max_length=50)
+    validated_by = models.CharField(_("Validated by (Punong Barangay)"), max_length=50)
 
