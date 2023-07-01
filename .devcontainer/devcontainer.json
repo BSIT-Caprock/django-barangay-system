@@ -12,7 +12,7 @@
   "customizations": {
     "codespaces": {
       "openFiles": [
-        "brgy/templates/index.html"
+        "hello_world/templates/index.html"
       ]
     },
     "vscode": {
