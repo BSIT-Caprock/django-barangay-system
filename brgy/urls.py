@@ -20,7 +20,6 @@ from brgy.core import views as core_views
 
 urlpatterns = [
     path("", core_views.index),
-    path("rbi/", include("rbi.urls")),
     path("tabler/", include("admin_tabler.urls")),
     path("tabler/rbi", include("admin_tabler_rbi.urls")),
     path("admin/", admin.site.urls),

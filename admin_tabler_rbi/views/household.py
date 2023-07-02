@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 
-from ..models import Household
+from rbi.models import Household
 
 
 # Create your views here.

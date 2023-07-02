@@ -1,0 +1,4 @@
+admin_tabler_rbi - urls and views for rbi using admin_tabler ui
+admin_tabler  - template and static files directory for admin_tabler ui
+brgy - project configuration
+rbi - data models for rbi
