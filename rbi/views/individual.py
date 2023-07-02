@@ -4,23 +4,23 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 
-from . import models
+from ..models import Individual
 
-
-def hello_world(request):
-    return HttpResponse('Hello world!')
 
 # Create your views here.
 
-def household_list(request):
-    pass
-
-def individual_list(request):
+def records(request):
     return render(request, "rbi/individual_list.html")
 
-def individual_create(request):
+def create(request):
     if request.method == "POST":
         pass
     pass
 
     return render(request, "rbi/individual_create.html", {})
+
+def update(request):
+    pass
+
+def delete(request):
+    pass

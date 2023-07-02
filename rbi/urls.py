@@ -15,8 +15,18 @@ Including another URLconf
 """
 from django.urls import path, include
 
-from rbi import views
+from .views import household, individual
 
 urlpatterns = [
-    path("hello", views.hello_world, name="hello"),
+    # household
+    path("households/", household.records, name="household_records"),
+    path("households/new/", household.create, name="household_create"),
+    path("households/<int:pk>/update/", household.update, name="household_update"),
+    path("households/<int:pk>/delete/", household.delete, name="household_records"),
+
+    # individual
+    path("individuals/", individual.records, name="individual_records"),
+    path("individuals/new/", individual.create, name="individual_create"),
+    path("individuals/<int:pk>/update/", individual.create, name="individual_update"),
+    path("individuals/<int:pk>/delete/", individual.create, name="individual_delete"),
 ]
