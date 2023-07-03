@@ -35,7 +35,6 @@ if 'CODESPACE_NAME' in os.environ:
 # Template system to use
 
 TEMPLATE_APP = "admin_tabler"
-TEMPLATE_APP_DIR = BASE_DIR / "admin_tabler"
 
 # Application definition
 
@@ -48,6 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_browser_reload",
     "rbi",
+    # Template system to use
     TEMPLATE_APP,
 ]
 
@@ -71,7 +71,6 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             BASE_DIR / "brgy" / "templates",
-            TEMPLATE_APP_DIR / "templates",
             ],
         "APP_DIRS": True,
         "OPTIONS": {
