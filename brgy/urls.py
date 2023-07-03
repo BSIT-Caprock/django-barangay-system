@@ -19,9 +19,17 @@ from django.urls import path, include
 from brgy.core import views as core_views
 
 urlpatterns = [
-    path("", core_views.index),
-    path("tabler/", include("admin_tabler.urls")),
-    path("tabler/", include("ui.tabler.urls")),
+    # admin site
     path("admin/", admin.site.urls),
+    
+    # urls for tabler
+    path("", include("admin_tabler.urls")),
+    
+    # our patterns must be last to override previous routes
+    path("", core_views.index, name="index"),
+    path("rbi/", core_views.rbi, name="rbi"),
+    path("docreq/", core_views.document_requests, name="document_requests"),
+
+    # auto reload browser
     path("__reload__/", include("django_browser_reload.urls")),
 ]
