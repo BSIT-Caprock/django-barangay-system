@@ -1,6 +1,19 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+# QuerySets
+
+class HouseholdQuerySet(models.QuerySet):
+
+    def household_count(self):
+        return self.count()
+
+class IndividualQuerySet(models.QuerySet):
+    
+    def resident_count(self):
+        return self.count()
+
+
 # Create your models here.
 
 class Household(models.Model):
@@ -9,6 +22,8 @@ class Household(models.Model):
     prepared_by = models.CharField(_("Prepared by (Name of Household Head/Member"), max_length=50)
     certified_by = models.CharField(_("Certified Correct (Barangay Secretary)"), max_length=50)
     validated_by = models.CharField(_("Validated by (Punong Barangay)"), max_length=50)
+
+    objects = HouseholdQuerySet.as_manager()
 
     def __str__(self):
         return self.household_number
@@ -33,6 +48,8 @@ class Individual(models.Model):
     attested_by = models.CharField(_("Attested by (Barangay Secretary)"), max_length=50, null=True, blank=True)
     household_number = models.CharField(_("Household Number"), max_length=50, null=True, blank=True)
     household = models.ForeignKey(Household, verbose_name=_("Household"), on_delete=models.CASCADE, related_name="members", null=True, blank=True)
+
+    objects = IndividualQuerySet.as_manager()
 
     def __str__(self):
         return f"{self.last_name}, {self.first_name}"
