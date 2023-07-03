@@ -32,6 +32,11 @@ if 'CODESPACE_NAME' in os.environ:
     codespace_domain = os.getenv("GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN")
     CSRF_TRUSTED_ORIGINS = [f'https://{codespace_name}-8000.{codespace_domain}']
 
+# Template system to use
+
+TEMPLATE_APP = "admin_tabler"
+TEMPLATE_APP_DIR = BASE_DIR / "admin_tabler"
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,6 +48,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_browser_reload",
     "rbi",
+    TEMPLATE_APP,
 ]
 
 MIDDLEWARE = [
@@ -63,7 +69,10 @@ ROOT_URLCONF = "brgy.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "brgy" / "templates"],
+        "DIRS": [
+            BASE_DIR / "brgy" / "templates",
+            TEMPLATE_APP_DIR / "templates",
+            ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
